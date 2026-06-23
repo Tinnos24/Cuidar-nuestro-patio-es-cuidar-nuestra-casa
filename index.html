@@ -1,406 +1,238 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidar nuestro patio es cuidar nuestra casa - Valentinno Carpio Sánchez</title>
-    <style>
-        /* ESTILOS INSPIRADOS EN IBERDROLA SOSTENIBILIDAD */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuidar nuestro patio es cuidar nuestra casa</title>
 
-        :root {
-            --verde-iberdrola: #a3cc39;
-            --verde-oscuro: #1d5f2a;
-            --azul-iberdrola: #0098bc;
-            --gris-fondo: #f9f9f9;
-            --texto-oscuro: #2c3e50;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
 
-        body {
-            background-color: var(--gris-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-        }
+body{
+background:#f5fdf6;
+color:#333;
+}
 
-        /* Navbar principal */
-        .navbar {
-            background: #ffffff;
-            border-bottom: 4px solid var(--verde-iberdrola);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+header{
+background:linear-gradient(135deg,#2e7d32,#4caf50);
+color:white;
+padding:20px;
+position:sticky;
+top:0;
+z-index:1000;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1200px;
+margin:auto;
+}
 
-        .logo-area {
-            display: flex;
-            flex-direction: column;
-        }
+.logo{
+font-size:1.6rem;
+font-weight:bold;
+}
 
-        .logo-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--verde-oscuro);
-        }
+.menu a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:bold;
+}
 
-        .logo-sub {
-            font-size: 0.85rem;
-            color: var(--azul-iberdrola);
-            font-weight: 600;
-        }
+.hero{
+height:80vh;
+background:url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 10px;
-        }
+.hero-content{
+background:rgba(0,0,0,.5);
+padding:40px;
+border-radius:15px;
+}
 
-        .nav-btn {
-            background: none;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--texto-oscuro);
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
+.hero h1{
+font-size:3rem;
+margin-bottom:15px;
+}
 
-        .nav-btn.active, .nav-btn:hover {
-            background-color: var(--verde-oscuro);
-            color: white;
-        }
+.hero p{
+font-size:1.2rem;
+}
 
-        /* Hero banner - Sección Iberdrola Reciclaje Niños */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+section{
+padding:60px 10%;
+}
 
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
+.titulo{
+text-align:center;
+font-size:2rem;
+color:#2e7d32;
+margin-bottom:30px;
+}
 
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
 
-        /* Contenedores de secciones */
-        .content-section {
-            display: none;
-            max-width: 1200px;
-            margin: 0 auto 4rem auto;
-            padding: 0 2rem;
-        }
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
 
-        .content-section.active-section {
-            display: block;
-        }
+.card h3{
+color:#2e7d32;
+margin-bottom:10px;
+}
 
-        /* Tarjetas de Información */
-        .grid-iberdrola {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+.juegos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
 
-        .card-iberdrola {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--azul-iberdrola);
-        }
+.juego{
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
 
-        .card-header-img {
-            background-color: #eef7f9;
-            padding: 1.5rem;
-            font-size: 2.5rem;
-            text-align: center;
-        }
+.juego a{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#4caf50;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
 
-        .card-body {
-            padding: 2rem;
-        }
-
-        .card-body h3 {
-            color: var(--verde-oscuro);
-            margin-bottom: 0.8rem;
-        }
-
-        /* SECCIÓN DE JUEGOS (Estilo Wordwall, Cokitos y ODS) */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .game-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .game-card:hover {
-            border-color: var(--verde-iberdrola);
-            transform: scale(1.03);
-        }
-
-        .game-display-area {
-            background: white;
-            border: 3px solid var(--verde-oscuro);
-            border-radius: 12px;
-            padding: 2.5rem;
-            max-width: 750px;
-            margin: 2rem auto;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        .game-display-area.active-game {
-            display: block;
-        }
-
-        /* Botones de juego */
-        .btn-action {
-            background-color: var(--azul-iberdrola);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 5px;
-            font-size: 1rem;
-            transition: background 0.2s;
-        }
-
-        .btn-action:hover {
-            background-color: var(--verde-oscuro);
-        }
-
-        /* Footer corporativo */
-        footer {
-            background-color: #1e293b;
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 6px solid var(--verde-iberdrola);
-        }
-
-        footer .author {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--verde-iberdrola);
-            font-weight: bold;
-        }
-    </style>
+footer{
+background:#1b5e20;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-area">
-                <span class="logo-title">Cuidar nuestro patio es cuidar nuestra casa</span>
-                <span class="logo-sub">Sostenibilidad & Educación Infantil</span>
-            </div>
-            <div class="nav-links">
-                <button class="nav-btn active" onclick="changeTab('info-tab')">Sostenibilidad</button>
-                <button class="nav-btn" onclick="changeTab('games-tab')">🕹️ Aula de Juegos</button>
-            </div>
-        </div>
-    </nav>
+<header>
+<nav>
+<div class="logo">♻ Cuidar nuestro patio es cuidar nuestra casa</div>
 
-    <div class="hero">
-        <h1>Reciclaje para niños: cómo aprender jugando</h1>
-        <p>Descubre junto a Valentinno Carpio Sánchez cómo enseñar a las nuevas generaciones la importancia de dar una segunda vida a los residuos para proteger nuestra casa común.</p>
-    </div>
+<div class="menu">
+<a href="#inicio">Inicio</a>
+<a href="#reutilizacion">Reutilización</a>
+<a href="#juegos">Juegos</a>
+</div>
+</nav>
+</header>
 
-    <main id="info-tab" class="content-section active-section">
-        <h2 style="text-align: center; color: var(--verde-oscuro); font-size: 2rem;">Aprender a reciclar desde el patio de casa</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0.5rem auto 3rem auto; color: #64748b;">Siguiendo las directrices ecológicas globales, te enseñamos las claves del reciclaje infantil mediante metodologías dinámicas.</p>
+<section class="hero" id="inicio">
+<div class="hero-content">
+<h1>Cuidar nuestro patio es cuidar nuestra casa</h1>
+<p>Promoviendo el reciclaje y la reutilización de residuos.</p>
+<br>
+<p><strong>Autor: Valentinno Carpio Sánchez</strong></p>
+</div>
+</section>
 
-        <div class="grid-iberdrola">
-            <div class="card-iberdrola">
-                <div class="card-header-img">♻️</div>
-                <div class="card-body">
-                    <h3>La Regla de las 3R</h3>
-                    <p>Reducir la cantidad de basura que generamos, Reutilizar los envases en nuestro patio y Reciclar depositando cada residuo en su contenedor correspondiente.</p>
-                </div>
-            </div>
-            <div class="card-iberdrola">
-                <div class="card-header-img">🎒</div>
-                <div class="card-body">
-                    <h3>Educación en el Aula</h3>
-                    <p>Talleres interactivos diseñados para que los más pequeños entiendan que un residuo plástico puede tardar hasta 500 años en degradarse en la naturaleza.</p>
-                </div>
-            </div>
-            <div class="card-iberdrola">
-                <div class="card-header-img">🏡</div>
-                <div class="card-body">
-                    <h3>Cuidar nuestra Casa</h3>
-                    <p>Mantener limpio nuestro entorno exterior es el primer paso para mitigar el cambio climático a nivel global. ¡Toda gran acción empieza en el patio!</p>
-                </div>
-            </div>
-        </div>
-    </main>
+<section id="reutilizacion">
+<h2 class="titulo">¿Cómo reutilizar la basura?</h2>
 
-    <main id="games-tab" class="content-section">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="color: var(--verde-oscuro); font-size: 2rem;">Centro de Juegos Ecológicos</h2>
-            <p style="color: #64748b;">Selecciona una de las dinámicas inspiradas en las mejores plataformas educativas:</p>
-        </div>
+<div class="cards">
 
-        <div class="games-grid">
-            <div class="game-card" onclick="openGame('game-twin')">
-                <span style="font-size: 2.5rem;">🗑️</span>
-                <h3 style="margin-top: 10px;">Estilo Twin the Bin</h3>
-                <p style="font-size: 0.9rem; color: #64748b;">Atrapa los residuos correctos antes de que caigan al suelo.</p>
-            </div>
-            <div class="game-card" onclick="openGame('game-wordwall')">
-                <span style="font-size: 2.5rem;">📋</span>
-                <h3 style="margin-top: 10px;">Estilo Wordwall Columnas</h3>
-                <p style="font-size: 0.9rem; color: #64748b;">Clasifica los elementos enviándolos a su contenedor correspondiente.</p>
-            </div>
-            <div class="game-card" onclick="openGame('game-ods')">
-                <span style="font-size: 2.5rem;">🌍</span>
-                <h3 style="margin-top: 10px;">Estilo Trivial ODS</h3>
-                <p style="font-size: 0.9rem; color: #64748b;">Responde preguntas sobre el medio ambiente y suma puntos.</p>
-            </div>
-        </div>
+<div class="card">
+<h3>Botellas Plásticas</h3>
+<p>Pueden convertirse en macetas, organizadores o decoraciones para el patio escolar.</p>
+</div>
 
-        <div id="game-twin" class="game-display-area">
-            <h3>Juego: ¡Atrapa el Residuo!</h3>
-            <p>Un objeto cae del cielo... ¡Prepara el contenedor correcto!</p>
-            <div style="font-size: 3.5rem; margin: 1.5rem 0;" id="twin-item">🍼</div>
-            <p id="twin-name" style="font-weight: bold; margin-bottom: 1.5rem;">Botella de Plástico</p>
-            <button class="btn-action" onclick="playTwin('amarillo')">Contenedor Amarillo</button>
-            <button class="btn-action" onclick="playTwin('azul')">Contenedor Azul</button>
-            <p id="twin-feedback" style="margin-top: 15px; font-weight: bold;"></p>
-        </div>
+<div class="card">
+<h3>Latas</h3>
+<p>Se pueden usar como portalápices, maceteros o recipientes para manualidades.</p>
+</div>
 
-        <div id="game-wordwall" class="game-display-area">
-            <h3>Ficha Interactiva: Organizar Columnas</h3>
-            <p>Clasifica este material para limpiar el patio:</p>
-            <div style="font-size: 3.5rem; margin: 1.5rem 0;" id="ww-item">📦</div>
-            <p id="ww-name" style="font-weight: bold; margin-bottom: 1.5rem;">Caja de Cartón</p>
-            <button class="btn-action" onclick="playWordwall('azul')">Columna Azul (Papel)</button>
-            <button class="game-btn btn-action" onclick="playWordwall('verde')">Columna Verde (Vidrio)</button>
-            <p id="ww-feedback" style="margin-top: 15px; font-weight: bold;"></p>
-        </div>
+<div class="card">
+<h3>Papel y Cartón</h3>
+<p>Sirven para crear carteles, maquetas y materiales educativos.</p>
+</div>
 
-        <div id="game-ods" class="game-display-area">
-            <h3>Trivial ODS: Objetivo Medio Ambiente</h3>
-            <p id="ods-question" style="font-weight: bold; font-size: 1.1rem; margin-bottom: 1.5rem;">¿Cuánto tiempo tarda en degradarse una bolsa de plástico?</p>
-            <button class="btn-action" onclick="playOds(true)">Aproximadamente 150 a 500 años</button>
-            <button class="btn-action" onclick="playOds(false)">Se desintegra en solo 2 semanas</button>
-            <p id="ods-feedback" style="margin-top: 15px; font-weight: bold;"></p>
-        </div>
-    </main>
+<div class="card">
+<h3>Tapas de Botella</h3>
+<p>Se utilizan para juegos educativos y proyectos artísticos.</p>
+</div>
 
-    <footer>
-        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">Cuidar nuestro patio es cuidar nuestra casa</p>
-        <p>Comprometidos con la difusión de los Objetivos de Desarrollo Sostenible (ODS) y el reciclaje infantil.</p>
-        <p class="author">Proyecto dirigido por: Valentinno Carpio Sánchez &copy; 2026</p>
-    </footer>
+</div>
+</section>
 
-    <script>
-        // Cambiar pestañas estilo Iberdrola
-        function changeTab(tabId) {
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active-section'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active-section');
-            event.target.classList.add('active');
-        }
+<section id="juegos">
+<h2 class="titulo">Juegos de Reciclaje</h2>
 
-        // Mostrar un juego específico
-        function openGame(gameId) {
-            document.querySelectorAll('.game-display-area').forEach(g => g.classList.remove('active-game'));
-            document.getElementById(gameId).classList.add('active-game');
-            // Hacer scroll suave hacia el juego abierto
-            document.getElementById(gameId).scrollIntoView({ behavior: 'smooth' });
-        }
+<div class="juegos">
 
-        // Lógica de Juego 1: Twin the Bin
-        const twinData = [
-            { emoji: "🍼", nombre: "Botella de Plástico", correcto: "amarillo" },
-            { emoji: "📰", nombre: "Revista de Papel", correcto: "azul" },
-            { emoji: "🧃", nombre: "Brik de Zumo", correcto: "amarillo" }
-        ];
-        let currentTwin = 0;
-        function playTwin(ans) {
-            const fb = document.getElementById('twin-feedback');
-            if(ans === twinData[currentTwin].correcto) {
-                fb.innerHTML = "¡Atrapado con éxito! ⭐"; fb.style.color = "green";
-            } else {
-                fb.innerHTML = "¡Ups! Se cayó fuera del contenedor."; fb.style.color = "red";
-            }
-            setTimeout(() => {
-                fb.innerHTML = "";
-                currentTwin = Math.floor(Math.random() * twinData.length);
-                document.getElementById('twin-item').innerText = twinData[currentTwin].emoji;
-                document.getElementById('twin-name').innerText = twinData[currentTwin].nombre;
-            }, 1200);
-        }
+<div class="juego">
+<h3>Juego del Reciclaje</h3>
+<a href="https://juegosods.com/juego-del-reciclaje/" target="_blank">
+Jugar
+</a>
+</div>
 
-        // Lógica de Juego 2: Wordwall Columnas
-        const wwData = [
-            { emoji: "📦", nombre: "Caja de Cartón", correcto: "azul" },
-            { emoji: "🔮", nombre: "Frasco de Perfume", correcto: "verde" },
-            { emoji: "✉️", nombre: "Sobre de Papel", correcto: "azul" }
-        ];
-        let currentWw = 0;
-        function playWordwall(ans) {
-            const fb = document.getElementById('ww-feedback');
-            if(ans === wwData[currentWw].correcto) {
-                fb.innerHTML = "¡Colocado correctamente en su columna! 📋"; fb.style.color = "green";
-            } else {
-                fb.innerHTML = "Columna equivocada. Inténtalo de nuevo."; fb.style.color = "red";
-            }
-            setTimeout(() => {
-                fb.innerHTML = "";
-                currentWw = Math.floor(Math.random() * wwData.length);
-                document.getElementById('ww-item').innerText = wwData[currentWw].emoji;
-                document.getElementById('ww-name').innerText = wwData[currentWw].nombre;
-            }, 1200);
-        }
+<div class="juego">
+<h3>Wordwall 1</h3>
+<a href="https://wordwall.net/es/resource/17271816/reciclar" target="_blank">
+Jugar
+</a>
+</div>
 
-        // Lógica de Juego 3: Trivial ODS
-        function playOds(isCorrect) {
-            const fb = document.getElementById('ods-feedback');
-            if(isCorrect) {
-                fb.innerHTML = "¡Respuesta correcta! Cuidar el patio reduce este impacto. 🌍"; fb.style.color = "green";
-            } else {
-                fb.innerHTML = "Incorrecto. Recuerda que el plástico dura siglos en nuestro planeta."; fb.style.color = "red";
-            }
-        }
-    </script>
+<div class="juego">
+<h3>Wordwall 2</h3>
+<a href="https://wordwall.net/es/resource/7000373/reciclar" target="_blank">
+Jugar
+</a>
+</div>
+
+<div class="juego">
+<h3>Wordwall 3</h3>
+<a href="https://wordwall.net/es/resource/16109593/reciclar" target="_blank">
+Jugar
+</a>
+</div>
+
+<div class="juego">
+<h3>Twin The Bin</h3>
+<a href="https://www.cokitos.com/twin-the-bin-juego-de-reciclaje-para-ninos/play/" target="_blank">
+Jugar
+</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 | Valentinno Carpio Sánchez</p>
+<p>Cuidar nuestro patio es cuidar nuestra casa ♻</p>
+</footer>
+
 </body>
 </html>
