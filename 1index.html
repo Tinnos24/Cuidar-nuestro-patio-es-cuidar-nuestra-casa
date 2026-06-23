@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidar nuestro patio es cuidar nuestra casa</title>
+    <style>
+        /* ESTILOS INSPIRADOS EN ECOEMBES (Limpios, corporativos, profesionales) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fa;
+            color: #2c3e50;
+        }
+
+        /* Barra superior tipo Ecoembes */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 3px solid #7cb342;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #1e5a34;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            color: #7cb342;
+            font-weight: normal;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: #1e5a34;
+            background-color: #f0f4f1;
+        }
+
+        .tab-btn.active {
+            background-color: #1e5a34;
+            color: white;
+        }
+
+        /* Contenido de pestañas */
+        .tab-content {
+            display: none;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Banner Principal / Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e5a34 0%, #7cb342 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Reutilización de Grillas Ecoembes */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid #1e5a34;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body h3 {
+            color: #1e5a34;
+            margin-bottom: 1rem;
+        }
+
+        /* SECCIÓN DE JUEGOS ESTILO COKITOS */
+        .game-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .game-container {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            display: none;
+        }
+
+        .game-container.active-game {
+            display: block;
+        }
+
+        .game-item {
+            font-size: 4rem;
+            margin: 1.5rem 0;
+        }
+
+        .game-btn {
+            background: #f0f7f1;
+            border: 2px solid #7cb342;
+            color: #1e5a34;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 1rem;
+        }
+
+        .game-btn:hover {
+            background: #7cb342;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 5px solid #7cb342;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                Cuidar nuestro patio es cuidar nuestra casa
+                <span>Proyecto de Valentinno Carpio Sánchez</span>
+            </div>
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab('inicio')">Inicio</button>
+                <button class="tab-btn" onclick="switchTab('economia')">Economía Circular</button>
+                <button class="tab-btn" onclick="switchTab('juegos')">🎮 Juegos de Reciclaje</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="inicio" class="tab-content active">
+        <div class="hero">
+            <h1>Cuidar nuestro patio es cuidar nuestra casa</h1>
+            <p>Iniciativa global y local para la reutilización inteligente de basura y residuos del hogar.</p>
+        </div>
+
+        <h2 style="text-align: center; color: #1e5a34;">¿Cómo gestionamos nuestro entorno?</h2>
+        
+        <div class="grid-3">
+            <div class="info-card">
+                <div class="card-body">
+                    <h3>Reutilizar envases</h3>
+                    <p>Dale una segunda vida a las botellas plásticas, frascos de vidrio y cajas convirtiéndolos en herramientas organizativas para tu patio.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-body">
+                    <h3>Reducir basura</h3>
+                    <p>El mejor residuo es el que no se genera. Aprende pautas de consumo responsable junto a Valentinno Carpio Sánchez.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-body">
+                    <h3>Cuidado del Hogar</h3>
+                    <p>Mantener limpio nuestro espacio exterior inmediato evita la contaminación de los suelos y atrae biodiversidad positiva.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="economia" class="tab-content">
+        <div class="info-card" style="max-width: 800px; margin: 0 auto; border-top: 5px solid #7cb342;">
+            <div class="card-body">
+                <h2 style="color: #1e5a34; margin-bottom: 1rem;">El modelo de las 3R</h2>
+                <p style="margin-bottom: 1rem;">Siguiendo los estándares internacionales de organizaciones ecológicas como Ecoembes, este proyecto promueve que los ciudadanos transformen sus hábitos hacia una economía circular.</p>
+                <p><strong>¿Qué es la Economía Circular?</strong> Es un sistema donde los materiales no se tiran, sino que regresan al ciclo productivo o se reutilizan de manera creativa en casa para evitar que contaminen la naturaleza.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="juegos" class="tab-content">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="color: #1e5a34;">🎮 Cokitos Mini-Juegos de Reciclaje</h2>
+            <p>Selecciona un juego interactivo para empezar a aprender jugando:</p>
+        </div>
+
+        <div class="game-selector">
+            <button class="game-btn" onclick="switchGame('juego1')">1. Clasificador Exprés</button>
+            <button class="game-btn" onclick="switchGame('juego2')">2. Limpiando el Océano</button>
+        </div>
+
+        <div id="juego1" class="game-container active-game">
+            <h3>Recycling Time: Separar la Basura</h3>
+            <p style="margin-top: 5px; color:#666;">Puntos: <span id="score1" style="font-weight:bold; color:#1e5a34;">0</span></p>
+            <div class="game-item" id="item1">🥤</div>
+            <p id="name1" style="font-weight: bold; margin-bottom: 1rem;">Botella de Plástico</p>
+            
+            <button class="game-btn" onclick="playGame1('plastico')">Contenedor Amarillo (Plástico)</button>
+            <button class="game-btn" onclick="playGame1('carton')">Contenedor Azul (Cartón)</button>
+            <button class="game-btn" onclick="playGame1('organico')">Contenedor Gris (Orgánico)</button>
+            <p id="feedback1" style="margin-top:15px; font-weight:bold;"></p>
+        </div>
+
+        <div id="juego2" class="game-container">
+            <h3>Clean Ocean: Salva a los peces</h3>
+            <p style="margin-top: 5px; color:#666;">Basura recolectada: <span id="score2" style="font-weight:bold; color:#e06666;">0</span></p>
+            <div class="game-item" id="item2">🐟</div>
+            <p id="desc2" style="margin-bottom: 1rem;">¡Oh no! Hay un peligro cerca del pez.</p>
+            
+            <button class="game-btn" onclick="playGame2('salvar')">Recoger red/plástico de la pantalla</button>
+            <button class="game-btn" onclick="playGame2('nada')">Dejar nadar libremente</button>
+            <p id="feedback2" style="margin-top:15px; font-weight:bold;"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">Cuidar nuestro patio es cuidar nuestra casa</p>
+        <p>Iniciativa inspirada en la educación ambiental y modelos de sostenibilidad.</p>
+        <p style="margin-top: 1.5rem; color: #bdc3c7; font-size: 0.9rem;">Director del Proyecto: <strong>Valentinno Carpio Sánchez</strong> &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Cambiar pestañas principales (Ecoembes)
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Cambiar entre juegos (Estilo Cokitos)
+        function switchGame(gameId) {
+            document.querySelectorAll('.game-container').forEach(game => {
+                game.classList.remove('active-game');
+            });
+            document.getElementById(gameId).classList.add('active-game');
+        }
+
+        // LÓGICA JUEGO 1
+        const dbJuego1 = [
+            { emoji: "🥤", nombre: "Botella de Plástico", tipo: "plastico" },
+            { emoji: "📦", nombre: "Caja de Zapatos", tipo: "carton" },
+            { emoji: "🍌", nombre: "Cáscara de Fruta", tipo: "organico" },
+            { emoji: "📰", nombre: "Periódico Viejo", tipo: "carton" }
+        ];
+        let id1 = 0;
+        let pts1 = 0;
+
+        function playGame1(ans) {
+            const fb = document.getElementById('feedback1');
+            if(ans === dbJuego1[id1].tipo) {
+                pts1 += 10;
+                fb.innerText = "¡Excelente! +10 puntos. 🎉";
+                fb.style.color = "green";
+            } else {
+                fb.innerText = "¡Vuelve a intentarlo! El contenedor correcto limpia el patio.";
+                fb.style.color = "red";
+            }
+            document.getElementById('score1').innerText = pts1;
+            setTimeout(() => {
+                fb.innerText = "";
+                id1 = Math.floor(Math.random() * dbJuego1.length);
+                document.getElementById('item1').innerText = dbJuego1[id1].emoji;
+                document.getElementById('name1').innerText = dbJuego1[id1].nombre;
+            }, 1200);
+        }
+
+        // LÓGICA JUEGO 2
+        const dbJuego2 = [
+            { emoji: "🕸️", desc: "¡Una red de pesca abandonada!", accion: "salvar" },
+            { emoji: "🐟", desc: "Un pez cirujano nadando feliz", accion: "nada" },
+            { emoji: "🛍️", desc: "Una bolsa de plástico flotando", accion: "salvar" },
+            { emoji: "🐢", desc: "Una tortuga marina buscando algas", accion: "nada" }
+        ];
+        let id2 = 0;
+        let pts2 = 0;
+
+        function playGame2(ans) {
+            const fb = document.getElementById('feedback2');
+            if(ans === dbJuego2[id2].accion) {
+                pts2 += 1;
+                fb.innerText = ans === 'salvar' ? "¡Súper! Retiraste la basura marina. 🌊" : "¡Correcto! Dejaste al animal libre.";
+                fb.style.color = "green";
+            } else {
+                fb.innerText = "¡Cuidado! Analiza si es un peligro o vida marina.";
+                fb.style.color = "red";
+            }
+            document.getElementById('score2').innerText = pts2;
+            setTimeout(() => {
+                fb.innerText = "";
+                id2 = Math.floor(Math.random() * dbJuego2.length);
+                document.getElementById('item2').innerText = dbJuego2[id2].emoji;
+                document.getElementById('desc2').innerText = dbJuego2[id2].desc;
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
